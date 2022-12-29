@@ -72,8 +72,11 @@ function getTableEntryHTML(trainee, selected) {
       <span class="rank" style="display: none;">${trainee.rank}</span>
       <span class="name"><strong>${trainee.name}</strong></span>
       <span class="name sub">(${trainee.name_sub})</span>
-      <div class="info" style="display: none;">
-        <span class="name sub">${trainee.birth} ${trainee.birthplace} ${trainee.blood}型</span>
+      <div class="info">
+        <span class="name sub">${trainee.company}</span>
+      </div>
+      <div class="info">
+        <span class="name sub">${trainee.birth} ${trainee.birthplace} ${trainee.height}cm</span>
       </div>
     </div>
   </div>`;

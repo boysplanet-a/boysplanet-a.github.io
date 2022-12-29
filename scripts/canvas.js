@@ -3,7 +3,7 @@ const MEMBER_FILE = {
   ja : "trainee_info.ja.csv"
 }
 const FILE_VERSION = "202212292256";
-const CURRENT_BORDER = 100;
+const CURRENT_BORDER = 97;
 const CURRENT_RANK_COLUMN = 100;
 const CANVAS_SCALE = 2;
 const ICON_WIDTH = 65;
@@ -67,12 +67,13 @@ function convertCSVArrayToTraineeData(csvArrays) {
     trainee.eliminated = trainee.rank > CURRENT_BORDER; // t if eliminated
     trainee.grade = "n";
     trainee.birth = traineeArray[3];
-    trainee.blood = traineeArray[4];
-    trainee.height = traineeArray[5];
-    trainee.weight = traineeArray[6];
-    trainee.birthplace = traineeArray[7];
+    trainee.height = traineeArray[4];
+    trainee.group = traineeArray[6];
+    trainee.company = traineeArray[6];
+    trainee.birthplace = traineeArray[7] || "";
     trainee.hobby = traineeArray[8];
     trainee.skills = traineeArray[9];
+    trainee.comment = traineeArray[10];
     trainees[trainee.id] = trainee;
   });
   return trainees;
