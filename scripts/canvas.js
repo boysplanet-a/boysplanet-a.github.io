@@ -2,7 +2,7 @@ const MEMBER_FILE = {
   default: "trainee_info.ko.csv",
   ja : "trainee_info.ja.csv"
 }
-const FILE_VERSION = "202106040708";
+const FILE_VERSION = "20221229";
 const CURRENT_BORDER = 100;
 const CURRENT_RANK_COLUMN = 100;
 const CANVAS_SCALE = 2;
