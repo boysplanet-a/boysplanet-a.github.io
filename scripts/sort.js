@@ -6,8 +6,8 @@ const MEMBER_FILE = {
   "zh-TW": "trainee_info.zh-TW.csv"
 }
 const FILE_VERSION = "202212300047";
-const CURRENT_BORDER = 21;
-const CURRENT_RANK_COLUMN = 16;
+const CURRENT_BORDER = 95;
+const CURRENT_RANK_COLUMN = 11;
 //for maker
 const PYRAMID_MAX = 11; // sum of PYRAMID_ROWS
 const PARAM_RESULT = "r";
@@ -17,8 +17,8 @@ const PARAM_CUSTOM_POOL = "c";
 const PARAM_NOT_CUSTOM_POOL = "n";
 const URL = "https://boysplanet-a.github.io/sort.html";
 const URL_PREFIX = `${URL}?r=`;
-const MAX_TRAINEE = 101;
-const RETIRED_TRAINEE = "91";
+const MAX_TRAINEE = 98;
+const RETIRED_TRAINEE = "";
 
 const CUSTOM_POOL_VALUE = "custom";
 
@@ -68,11 +68,12 @@ function convertCSVArrayToTraineeData(csvArrays) {
   const trainees = {};
   csvArrays.forEach(traineeArray => {
     const trainee = {};
-    trainee.id = parseInt(traineeArray[0]) - 1;
+    trainee.id = parseInt(traineeArray[0]);
     trainee.image = traineeArray[0] + ".png";
+    trainee.image_large = "trainees/"+ traineeArray[0] + ".png";
     trainee.name = traineeArray[1];
     trainee.name_sub = traineeArray[2];
-    trainee.rank = traineeArray[CURRENT_RANK_COLUMN] || 1;
+    trainee.rank = Number(traineeArray[CURRENT_RANK_COLUMN]) || 1;
     trainee.eliminated = trainee.rank > CURRENT_BORDER; // t if eliminated
     trainee.grade = "n";
     trainee.birth = traineeArray[3];
@@ -83,6 +84,8 @@ function convertCSVArrayToTraineeData(csvArrays) {
     trainee.hobby = traineeArray[8];
     trainee.skills = traineeArray[9];
     trainee.comment = traineeArray[10];
+    trainee.compare = 0;
+    trainee.score = 0;
     trainees[trainee.id] = trainee;
   });
   return trainees;
@@ -162,15 +165,16 @@ function renderMatch(id, me, other) {
   const trainee = trainees[me];
   document.getElementById(id).onclick = "";
   document.getElementById(id).innerHTML =
-      `<div class="image_large"><img src="assets/trainees_1/${trainee.image_large}" />`
+      `<div class="image_large"><img src="assets/${trainee.image_large}" />`
       + `<div class="profile">`
-      + `<div class="rank">${trainee.rank}位</div>`
+      //+ `<div class="rank">${trainee.rank}位</div>`
       + `<div class="name">${trainee.name}</div>`
       + `<div class="name_sub profile_sub">(${trainee.name_sub})</div>`
       + `<div class="birth profile_sub">${trainee.birthplace} ${trainee.birth}</div>`
-      + `<div class="heightWeight profile_sub">${trainee.height}cm,${trainee.weight}kg</div>`
+      + `<div class="heightWeight profile_sub">${trainee.height}cm</div>`
       + `<div class="hobby profile_sub">${trainee.hobby}</div>`
       + `<div class="skills profile_sub">${trainee.skills}</div>`
+      + `<div class="skills profile_sub">${trainee.comment}</div>`
       + `</div></div>`;
   document.getElementById(id).onclick =
       () => {
@@ -203,7 +207,7 @@ function renderResult(finalRanking) {
     htmlArray.push(
         `<div class="ranking__trainee">`
         + `<div class="ranking__image">`
-        + `<div class="ranking__image-border ${trainee.grade}-rank-border"></div> `
+        + `<div class="ranking__image-border ${trainee.group}-rank-border"></div> `
         + `<img src="assets/trainees/${trainee.image}" alt="${trainee.name}"/>`
         + `<div class="ranking__rank">${i + 1}</div>`
         + `</div>`
@@ -242,7 +246,7 @@ function renderAttendeesPreview() {
     htmlArray.push(
         `<div class="attendee-preview-trainee ${isAttendee}" id="attendee-preview-trainee-${id}" data-trainee="${id}">`
         + `<div class="attendee-preview-image">`
-        + `<div class="attendee-preview-image-border ${trainee.grade}-rank-border"></div> `
+        + `<div class="attendee-preview-image-border ${trainee.group}-rank-border"></div> `
         + `<img src="assets/trainees/${trainee.image}" alt="${trainee.name}"/>`
         + `</div>`
         + `</div>`
@@ -366,7 +370,7 @@ function encodePicks(picksArr, len) {
 function decodePicks(code) {
   let picksArr = [];
   for (let j = 0; j < MAX_TRAINEE && j * 2 < code.length - 1; j++) {
-    const v = parseInt(code.substr(j * 2, 2), 32);
+    const v = parseInt(code.substring(j * 2, 2), 32);
     if (v === 0) {
       picksArr[j] = null;
     } else {
@@ -444,6 +448,7 @@ function readFromParam() {
 function getSetLang() {
   let lang = getLangSetting()
   document.documentElement.lang = lang;
+  document.getElementById("multi-lang").className = lang === "ja" ? "lang-ja" : "lang-en";
   return lang;
 }
 
