@@ -370,7 +370,7 @@ function encodePicks(picksArr, len) {
 function decodePicks(code) {
   let picksArr = [];
   for (let j = 0; j < MAX_TRAINEE && j * 2 < code.length - 1; j++) {
-    const v = parseInt(code.substring(j * 2, 2), 32);
+    const v = parseInt(code.substring(j * 2, j * 2 + 2), 32);
     if (v === 0) {
       picksArr[j] = null;
     } else {

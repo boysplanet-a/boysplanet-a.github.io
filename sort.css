@@ -12,6 +12,9 @@
   --second-color-sub2: #BFCC83;
   --color-gray: #909090;
   --color-gray-second: #F2F2F2;
+  --color-header: #332089;
+  --kor-rank: #53a4fa;
+  --glo-rank: #d74194;
 
   --checked-blue: #0080CBCC;
 
@@ -52,10 +55,19 @@
 .x-rank-border {
   border: 2px solid var(--x-rank);
 }
+.no-rank-border {
+  border: none;
+}
+.KOR-rank-border {
+  border: 2px solid var(--kor-rank);
+}
+.GLO-rank-border {
+  border: 2px solid var(--glo-rank);
+}
 
 /* Styles for banner */
 #top-banner {
-  background: radial-gradient(circle, #FFFFFF, var(--first-color-sub) 80%);
+  background: radial-gradient(circle, #FFFFFF, var(--color-header) 80%);
   padding: 3px;
 
   /* these will be unnecessary once we get the banner image */
