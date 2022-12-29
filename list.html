@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="google" content="notranslate" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="google-site-verification" content="7p1WafVpQTLkZyuTgblWByOqOKhbZ05coC5oHC3f8b0"/>
+  <meta property="og:title" content="Produce 101 Japan Season 2 推しMENリスト"/>
+  <meta property="og:url" content="https://produce101japan2.github.io/list.html"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://produce101japan2.github.io/assets/thumbnail_list.png"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@ai_var_">
+  <meta name="twitter:title" content="Produce 101 Japan Season 2 推しMENリスト">
+  <meta name="twitter:image" content="https://produce101japan2.github.io/assets/thumbnail_list.png">
+  <meta name="thumbnail" content="https://produce101japan2.github.io/assets/thumbnail_list.png">
+
+  <link rel="icon" href="assets/pickme.png">
+  <link rel="stylesheet" type="text/css" media="screen" href="styles.css?201910121652"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="list.css?201910121652"/>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700"
+        rel="stylesheet">
+  <title>Produce 101 Japan Season 2 推しMENリスト</title>
+</head>
+<body>
+<div id="top-banner">
+  <a href="/"><img id="banner-image" src="assets/logo.svg"/></a>
+  <p id="banner-subtitle">推しMENリスト</p>
+</div>
+<div class="trainee__padding">
+  <div id="trainee__table">
+    <div id="trainee__list">
+
+      <div class="list__entry">
+        <div class="list__entry-view">
+          <div class="list__entry-icon">
+            <img class="list__entry-img" src="assets/a-heart.png"/>
+          </div>
+        </div>
+        <div class="list__row-text">
+          <div class="name"></div>
+        </div>
+      </div>
+
+      <div class="list__entry">
+        <div class="list__entry-view">
+          <div class="list__entry-icon">
+            <img class="list__entry-img" src="assets/b-heart.png"/>
+          </div>
+        </div>
+        <div class="list__row-text">
+          <div class="name"></div>
+        </div>
+      </div>
+
+      <div class="list__entry">
+        <div class="list__entry-view">
+          <div class="list__entry-icon">
+            <img class="list__entry-img" src="assets/c-heart.png"/>
+          </div>
+        </div>
+        <div class="list__row-text">
+          <div class="name"></div>
+        </div>
+      </div>
+
+    </div>
+    <div id="current_date"></div>
+  </div>
+  <p>
+  <div id="filters-container">
+    <div class="filters-container__entry">
+      <input type="checkbox" name="show-eliminated" id="show-eliminated"
+             onclick="showEliminatedClick(event)" checked/>
+      <label class="checkbox-label" for="show-eliminated">現在の練習生のみ Only Current Trainees</label>
+    </div>
+  </div>
+  <div id="tool-container">
+    <div id="sharelink-container">
+      <!-- button -->
+      <input type="button" id="getlink-button" value="Get link" onclick="generateShareLink()"/>
+      <!-- text box -->
+      <input type="text" placeholder="http://" id="getlink-textbox" readonly/>
+      <!-- button in text box -->
+      <input type="button" id="copylink-button" value="Copy" onclick="copyLink()"/>
+    </div>
+    <div id="how-to-use">
+      <p>使い方～How to use～</p>
+      <ul>
+        <li>画像クリックで<span class="c-rank">気になる</span>→<span class="b-rank">推し</span>→<span class="a-rank">最推し</span>の順で変化します
+        </li>
+        <li class="en">Change to <span class="c-rank">favorite</span>→<span class="b-rank">pick</span>→<span
+            class="a-rank">1pick</span> by clicking image
+        </li>
+        <li><span class="a-rank">最推し</span>は一人のみ</li>
+        <li class="en">Pick only one for <span class="a-rank">1pick</span></li>
+        <li>スクショするかGet LinkでURLを取得できます</li>
+        <li class="en">Take a screenshoot or get link with a button</li>
+        <li>Resetで初めから</li>
+        <li class="en">Reset all with Reset button</li>
+      </ul>
+    </div>
+    <div id="create-new-container">
+      <input type="button" id="create-new-button" value="Reset" onclick="resetAll()"/>
+    </div>
+  </div>
+</div>
+<footer>
+  <p>switch to <a href="?lang=en">English</a> | <a href="?lang=ja">日本語</a></p>
+  <p><a href="/">推しMENメーカー</a> | <a href="/sort.html">推しMENチェッカー</a></p>
+  <hr />
+  <p> <a href="https://produce48.github.io/">produce48</a> | <a
+    href="https://producex101.github.io/producex101/">producex101</a> | <a
+    href="https://produce101japan.github.io/">produce101japan</a>
+  </p>
+  <p>
+    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+       data-url="https://produce101japan2.github.io/list.html" data-hashtags="推しMENリスト,PRODUCE101JAPAN2"
+       data-show-count="false">Tweet</a>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  </p>
+</footer>
+
+<!-- Load in script files -->
+<script src="scripts/csv.js"></script>
+<script src="scripts/list.js?202106040708"></script>
+
+</body>
+</html>

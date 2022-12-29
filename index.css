@@ -1,0 +1,388 @@
+/* define constants up here */
+:root {
+  --produce-gray: #e4e4e4;
+  --name-gray: #333;
+  --button-dl-bg: #40AFFF;
+
+  --first-color-main: #40AFFF;
+  --first-color-sub: #81e1ff;
+  --first-color-sub2: #0080cb;
+  --second-color-main: #f2ffb3;
+  --second-color-sub: #ffffe6;
+  --second-color-sub2: #bfcc83;
+  --color-gray: #909090;
+  --color-gray-second: #f2f2f2;
+
+  --checked-blue: #0080cbcc;
+
+  /* ranking border colors */
+  --a-rank: #f7abc5;
+  --b-rank: #f47f22;
+  --c-rank: #f6d12f;
+  --d-rank: #42b96d;
+  --f-rank: #a6a6a4;
+  --x-rank: #000000;
+  --no-rank: #707070;
+
+  /* font */
+  --font-family: 'Noto Sans JP', 'Open Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: var( --font-family);
+  display: inline-block;
+  min-width: 100%;
+  background-color: white;
+}
+
+button {
+  font-family: var( --font-family);
+  border-width: 1px;
+  border-radius: 3px;
+  color: #fff;
+  background-color: var(--first-color-main);
+  border: solid 1px var(--first-color-main);
+  outline: 0;
+}
+
+p {
+  margin: 0;
+}
+
+// reset iOS button design
+&[type="button"], &[type="submit"] {
+    -webkit-appearance: none;
+}
+
+/* Styles for banner */
+#top-banner {
+  background: radial-gradient(circle, var(--banner-bg-start), var(--banner-bg-end) 80%);
+  /* background-color: var(--banner-bg-color); */
+  /*  background: url("assets/bg_header.png");*/
+  padding: 10px;
+
+  /* these will be unnecessary once we get the banner image */
+  color: white;
+  text-align: center;
+}
+
+/* Styles for table */
+#trainee_picker {
+  height: 590px;
+  width: 300px;
+  border-radius: 3px;
+  border: 1px solid var(--produce-gray);
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+}
+#trainee_picker__filter-container {
+  padding: 0.5em;
+  border-bottom: 1px solid var(--produce-gray);
+  display: flex;
+}
+#trainee_picker__filter-input {
+  padding: 5px;
+  height: 2em;
+  box-sizing: border-box;
+  border-radius: 3px;
+  background-color: var(--color-gray-second);
+  border: none;
+  outline: 0;
+  width: 100%;
+  margin: 0 1px;
+}
+
+#trainee_picker__filter-container>button{
+  margin: 0 1px;
+  padding: 0.5em;
+  height: 2em;
+  border: 0;
+  background-color: var(--color-gray);
+}
+
+#trainee_picker__filter-container>button:active{
+  background-color: var(--second-color-sub2);
+}
+
+#trainee_picker__filter-container>button.active{
+  color: var(--color-gray);
+  background-color: var(--second-color-main);
+}
+
+::placeholder {
+  color: var(--color-gray);
+}
+
+/* Styles for table entries */
+#trainee_picker__container {
+  overflow-y: scroll;
+}
+.trainee_picker__container__entry {
+  display: flex;
+  align-items: flex-start;
+  border-bottom: 1px solid var(--produce-gray);
+  cursor: pointer;
+}
+.trainee_picker__container__entry:last-child {
+	border-bottom: none;
+}
+.trainee_picker__container__entry:hover {
+  background-color: #f0f0f0;
+}
+.trainee_picker__container__entry-icon {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 6px 8px;
+  display: block;
+  box-sizing: border-box;
+  position: relative;
+}
+.trainee_picker__container__entry-img {
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+}
+.eliminated .trainee_picker__container__entry-img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+/* only applied when an entry is selected/checked */
+.trainee_picker__container__entry-check {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  /* blue background */
+  background-color: var(--checked-blue);
+  /* the padding insets the checkbox (makes it bigger/smaller) */
+  padding: 10px;
+  box-sizing: border-box;
+}
+.trainee_picker__container__entry-icon-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+.trainee_picker__container__entry-icon-crown, .ranking__entry-icon-crown {
+  position: absolute;
+  padding: 2px;
+  box-sizing: border-box;
+  top: -5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #e3e3e3;
+  background-image: url(assets/crown.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-origin: content-box;
+}
+/* Different entry borders */
+.a-rank-border {
+  border: 2px solid var(--a-rank);
+}
+.b-rank-border {
+  border: 2px solid var(--b-rank);
+}
+.c-rank-border {
+  border: 2px solid var(--c-rank);
+}
+.d-rank-border {
+  border: 2px solid var(--d-rank);
+}
+.f-rank-border {
+  border: 2px solid var(--f-rank);
+}
+.x-rank-border {
+  border: 2px solid var(--x-rank);
+}
+.no-rank-border {
+  border: none;
+}
+.eliminated .trainee_picker__container__entry-icon-border {
+  border: 2px solid var(--no-rank);
+}
+.eliminated .ranking__entry-icon-border {
+  border: 2px solid var(--no-rank);
+}
+
+.trainee_picker__container__entry-text {
+  margin: auto 5px auto 5px;
+  font-size: 12px;
+  color: var(--name-gray);
+}
+.trainee_picker__container__entry-text .rank {
+  display: block;
+}
+.trainee_picker__container__entry .name.sub {
+  font-size: 11px;
+}
+
+.trainee_picker__container__entry .info {
+  color: var(--color-gray);
+}
+
+/* Ranking Styles */
+#ranking__pyramid {
+  display: flex;
+  flex-direction: column;
+}
+
+#ranking__pyramid-canvas {
+	margin:10px auto;
+	width: 540px;
+}
+
+#ranking__pyramid-tools {
+	height: 40px;
+  display: flex;
+  padding: 0 10px;
+  font-size: 13px;
+}
+
+#ranking__pyramid-tools button{
+  padding: 0 5px;
+  cursor: pointer;
+}
+
+#ranking__pyramid-toos-text-container{
+  padding-right: 4em;
+  display: none;
+}
+
+#ranking__pyramid-tools-text{
+  border: none;
+  width: 100%;
+}
+
+#ranking__pyramid-tools-text:focus {
+  outline: 0;
+}
+
+#ranking__pyramid-tools-dl {
+	height: 40px;
+  background-color: var(--button-dl-bg);
+  border: solid 1px var(--button-dl-bg);
+  margin-right: 8px;
+  font-size: 13px;
+}
+
+#ranking__pyramid-tools-dl:active {
+  background-color: var(--first-color-sub2);
+}
+
+#ranking__pyramid-tools-share{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid var(--button-dl-bg);
+  background-color: var(--button-dl-bg);
+  display: block;
+  padding: 10px 5px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  overflow: hidden;
+  color: #fff;
+}
+
+#ranking__pyramid-tools-share-sub{
+  display: flex;
+}
+
+#ranking__pyramid-tools-share-sub.sub-hidden{
+  display: none;
+}
+
+#ranking__pyramid-tools-copy{
+  z-index: 1;
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid var(--first-color-main);
+  display: block;
+  padding: 10px 5px;
+  overflow: hidden;
+  color: var(--first-color-main);
+  cursor: pointer;
+  border-right: 0;
+}
+
+#ranking__pyramid-tools-copy:active {
+  background: var(--second-color-main);
+}
+
+#ranking__pyramid-tools-twitter{
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid var(--first-color-main);
+  display: block;
+  padding: 10px 5px;
+  overflow: hidden;
+  color: var(--first-color-main);
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  text-decoration:none;
+}
+
+#ranking__pyramid-tools-twitter:active {
+  background: var(--second-color-main);
+}
+
+/* Generic Styles */
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+
+.drag-cursor {
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+/* footer */
+footer{
+    text-align: center;
+    font-size: 12px;
+}
+
+footer p{
+  margin: 10px;
+}
+
+#switch_lang{
+    font-size: 10px;
+    margin-top: 10px;
+    display: none;
+}
+
+@media screen and (max-width: 870px) {
+  /* Ranking Styles */
+  #ranking__pyramid-canvas {
+    margin: 0px auto;
+    width: 100%;
+    max-width: 540px;
+  }
+
+  #trainee_picker {
+    height: inherit;
+    width: 100%;
+    max-width: 540px;
+  }
+
+  #trainee_picker__container {
+    height: 35vh;
+  }
+}

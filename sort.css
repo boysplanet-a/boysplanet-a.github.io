@@ -1,0 +1,486 @@
+/* define constants up here */
+:root {
+  --produce-gray: #E4E4E4;
+  --name-gray: #333;
+  --button-dl-bg: #40AFFF;
+
+  --first-color-main: #40AFFF;
+  --first-color-sub: #81E1FF;
+  --first-color-sub2: #0080CB;
+  --second-color-main: #F2FFB3;
+  --second-color-sub: #FFFFE6;
+  --second-color-sub2: #BFCC83;
+  --color-gray: #909090;
+  --color-gray-second: #F2F2F2;
+
+  --checked-blue: #0080CBCC;
+
+  /* ranking border colors */
+  --a-rank: #F7ABC5;
+  --b-rank: #F47F22;
+  --c-rank: #F6D12F;
+  --d-rank: #42B96D;
+  --f-rank: #A6A6A4;
+  --x-rank: #000000;
+  --no-rank: #707070;
+
+  /* font */
+  --font-family: 'Noto Sans JP', 'Open Sans', sans-serif;
+}
+
+/* Different entry borders */
+.a-rank-border {
+  border: 2px solid var(--a-rank);
+}
+
+.b-rank-border {
+  border: 2px solid var(--b-rank);
+}
+
+.c-rank-border {
+  border: 2px solid var(--c-rank);
+}
+
+.d-rank-border {
+  border: 2px solid var(--d-rank);
+}
+
+.f-rank-border {
+  border: 2px solid var(--f-rank);
+}
+
+.x-rank-border {
+  border: 2px solid var(--x-rank);
+}
+
+/* Styles for banner */
+#top-banner {
+  background: radial-gradient(circle, #FFFFFF, var(--first-color-sub) 80%);
+  padding: 3px;
+
+  /* these will be unnecessary once we get the banner image */
+  color: white;
+  text-align: center;
+}
+
+#banner-image {
+  width: 40px;
+  display: inline-block;
+  margin: 0;
+  vertical-align: middle;
+}
+
+#banner-title {
+  font-family: var(--font-family);
+  font-size: 14px;
+  margin: 0;
+  display: inline-block;
+}
+
+#banner-subtitle {
+  font-family: var(--font-family);
+  color: var(--first-color-sub2);
+  display: inline-block;
+}
+
+/*app*/
+/* controller: select -> matching -> selected*/
+.select #target-boards {
+  display: none;
+}
+
+#target-boards-result {
+  display: none;
+}
+
+.selected #target-boards-result {
+  display: block;
+}
+
+#target-boards {
+  display: none;
+}
+
+.matching #target-boards {
+  display: block;
+}
+
+.message {
+  display: none;
+}
+
+.lang-en *[lang=en] {
+  display: contents;
+}
+
+.lang-ja *[lang=ja] {
+  display: contents;
+}
+
+/*controller*/
+#controller {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/*match*/
+#target-boards-progress-status {
+  margin: 0 1vw 0;
+}
+
+progress {
+  width: 100%;
+  height: 2px;
+  background-color: var(--color-gray-second);
+}
+
+progress::-webkit-progress-bar {
+  background-color: var(--color-gray-second);
+}
+
+progress::-webkit-progress-value {
+  background-color: var(--first-color-sub2);
+}
+
+progress::-moz-progress-bar {
+  background-color: var(--first-color-sub2);
+}
+
+progress::-ms-fill {
+  background-color: var(--first-color-sub2);
+}
+
+#target-boards {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+#target-boards-match {
+  display: flex;
+  flex-direction: row;
+}
+
+.target-boards-container {
+  position: relative;
+  margin: 5px;
+}
+
+.target-boards-container .profile {
+  position: absolute;
+  bottom: 5px;
+  text-align: right;
+  right: 0;
+  width: 100%;
+  background-color: rgba(46, 46, 46, 0.4);
+  color: var(--color-gray-second);
+  font-size: 13px;
+}
+
+.profile .profile_sub {
+  font-size: 12px;
+}
+
+.profile div {
+  padding: 0 5px 3px;
+}
+
+.target-boards-container:hover {
+  background-color: var(--second-color-sub);
+  cursor: pointer;
+}
+
+.target-boards-container:hover img {
+  filter: opacity(90%);
+}
+
+.target-boards-container .image_large img {
+  object-fit: cover;
+  max-width: 400px;
+  max-height: 600px;
+  width: 48vw;
+  height: 72vw;
+}
+
+#target-boards-left {
+  margin: 10px 1vw 10px 1vw;
+}
+
+#target-boards-right {
+  margin: 10px 1vw 10px 0;
+}
+
+@media screen and (max-width: 800px) {
+  .profile .hobby {
+    display: none;
+  }
+
+  .profile .skills {
+    display: none;
+  }
+}
+
+#target-rounds-space {
+  top: 10px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  height: 0;
+}
+
+#target-vs-space {
+  top: 40px;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  height: 0;
+  font-size: 36px;
+}
+
+#target-boards-back {
+  cursor: pointer;
+  color: blue;
+}
+
+/*result*/
+#target-boards-result {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ranking__trainee {
+  display: flex;
+  flex-direction: row;
+  margin: 12px;
+}
+
+.ranking__image {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.ranking__image img {
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+}
+
+.ranking__image-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.ranking__rank {
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: 0;
+  right: 0;
+  bottom: -7px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: var(--first-color-sub2);
+  box-sizing: border-box;
+  font-weight: 900;
+  font-size: 8px;
+  text-align: center;
+  color: white;
+}
+
+.ranking__info {
+  padding: 10px;
+}
+
+.ranking__name-sub {
+  font-size: 11px;
+}
+
+#target-boards-result_share {
+  margin-top: 20px;
+}
+
+.target-boards-result_share-url-button {
+  box-sizing: border-box;
+  position: relative;
+  border-top: 1px solid var(--first-color-sub2);
+  border-bottom: 1px solid var(--first-color-sub2);
+  display: block;
+  padding: 10px 5px;
+  overflow: hidden;
+  color: var(--first-color-sub2);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#target-boards-result_share-twitter_a{
+  border-bottom-right-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid var(--first-color-sub2);
+
+}
+
+#target-boards-result_share-url{
+  display: flex;
+  flex-direction: row;
+  margin-top:20px;
+}
+
+#target-boards-result_share-title {
+  box-sizing: border-box;
+  position: relative;
+  border: 1px solid var(--first-color-sub2);
+  background-color: var(--first-color-sub2);
+  display: block;
+  padding: 10px 5px;
+  border-bottom-left-radius: 3px;
+  border-top-left-radius: 3px;
+  overflow: hidden;
+  color: #fff;
+}
+
+#target-boards-result_share-url-text{
+  display: none;
+}
+
+/*setting*/
+#setting {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 97vw;
+}
+
+#setting_panel {
+  margin: 10px 0;
+  padding: 10px;
+  background-color: var(--color-gray-second);
+}
+
+.init-competition {
+  height: 40px;
+  background-color: var(--button-dl-bg);
+  border: solid 1px var(--button-dl-bg);
+  cursor: pointer;
+  width: 100%;
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+#start-competition {
+  display: none;
+}
+
+.select #start-competition {
+  display: block;
+}
+
+#restart-competition {
+  display: block;
+}
+
+.select #restart-competition {
+  display: none;
+}
+
+.start_competition_space {
+  width: 100%;
+}
+
+#start-competition_error{
+  display: none;
+}
+#start-competition_error.setting-error {
+  font-size: 10px;
+  color: red;
+  display: contents;
+}
+
+#setting_condition-pool-preview{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.attendee-preview-image {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  display: inline-block;
+  box-sizing: border-box;
+  position: relative;
+  margin: 5px;
+  box-shadow: 4px 4px 2px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.attend-off .attendee-preview-image {
+  box-shadow: 0 0;
+  filter: brightness(70%) grayscale(60%);
+}
+
+.attendee-preview-image img{
+  border-radius: 50%;
+  width: inherit;
+  height: inherit;
+}
+
+.attendee-preview-image-border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+
+.setting_condition-status {
+  display: flex;
+  flex-direction: row;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+#setting_condition-share {
+  text-align: right;
+  margin-left: auto;
+  color: var(--color-gray);
+}
+
+.setting_condition-share-icon{
+  margin: 0 3px;
+  cursor: pointer;
+  text-decoration: none;
+}
+#setting_condition-share-url{
+  color: var(--first-color-sub2);
+}
+
+#setting_condition-share-twitter{
+  color: #1DA1F2;
+}
+
+#setting_condition-share-line{
+  margin-right: 0;
+  color: var(--first-color-sub2);
+}
+
+.line-fill-1 {
+  fill: #00C300;
+}
+
+.line-fill-2 {
+  fill: #FFF;
+}

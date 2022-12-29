@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="google" content="notranslate"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <meta name="google-site-verification" content="7p1WafVpQTLkZyuTgblWByOqOKhbZ05coC5oHC3f8b0"/>
+  <meta property="og:title" content="Produce 101 Japan Season 2 推しMENチェッカー"/>
+  <meta property="og:url" content="https://produce101japan2.github.io"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:image" content="https://produce101japan2.github.io/assets/thumbnail_sort.png"/>
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@ai_var_">
+  <meta name="twitter:title" content="Produce 101 Japan Season 2 推しMENチェッカー">
+  <meta name="twitter:image" content="https://produce101japan2.github.io/assets/thumbnail_sort.png">
+  <meta name="thumbnail" content="https://produce101japan2.github.io/assets/thumbnail_sort.png">
+
+  <link rel="icon" href="assets/pickme.png">
+  <link rel="stylesheet" type="text/css" media="screen" href="index.css?201910121652"/>
+  <link rel="stylesheet" type="text/css" media="screen" href="sort.css?201910121652"/>
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto+Condensed:400,700"
+        rel="stylesheet">
+  <title>Produce 101 Japan Season 2 推しMENチェッカー</title>
+</head>
+<body>
+<div id="multi-lang" class="lang-en">
+  <div id="top-banner">
+    <a href="/"><img id="banner-image" src="assets/logo.svg"/></a>
+    <p id="banner-subtitle">推しMENチェッカー</p>
+  </div>
+  <div id="controller" class="select">
+
+    <div id="target-boards">
+      <div id="target-boards-p  rogress-status">
+        <progress id="target-estimated-progress-bar" max="100" value="70"><span
+          id="target-estimated-progress"></span>%
+        </progress>
+      </div>
+      <div id="target-rounds-space">
+        Round <span id="target-rounds"></span>
+      </div>
+      <div id="target-vs-space">
+        VS
+      </div>
+      <div id="target-boards-match">
+        <div id="target-boards-left" class="target-boards-container">
+        </div>
+        <div id="target-boards-right" class="target-boards-container">
+        </div>
+      </div>
+      <div id="target-boards-back">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+             class="bi bi-chevron-double-left">
+          <path fill-rule="evenodd"
+                d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+          <path fill-rule="evenodd"
+                d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"/>
+        </svg>
+        BACK
+      </div>
+    </div>
+
+    <div id="target-boards-result">
+      <div id="target-boards-result_ranking"></div>
+      <div id="target-boards-result_share-sns">
+
+      <span id="target-boards-result_share-url">
+        <div id="target-boards-result_share-title">
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+             class="bi bi-share-fill" viewBox="0 0 16 16">
+          <path
+            d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+        </svg> URL</div>
+        <div id="target-boards-result_share-copy" class="target-boards-result_share-url-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+               class="bi bi-files" viewBox="0 0 16 16">
+            <path
+              d="M13 0H6a2 2 0 0 0-2 2 2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h7a2 2 0 0 0 2-2 2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm0 13V4a2 2 0 0 0-2-2H5a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1zM3 4a1 1 0 0 1 1-1h7a1 1 0 0 1 1 1v10a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4z"/>
+          </svg> copy</div>
+        <a id="target-boards-result_share-twitter_a" href="/" target="_blank" rel="noopener noreferrer"
+           class="target-boards-result_share-url-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+               class="bi bi-twitter">
+            <path
+              d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+          </svg>
+          <span class="message" lang="ja">ツイッター</span>
+          <span class="message" lang="en">Twitter</span>
+        </a>
+      </span>
+        <div id="target-boards-result_share-url-text">
+          <input type="text" id="target-boards-result_share-url-v" readonly>
+        </div>
+      </div>
+
+      <div id="target-boards-result_share"><a id="target-boards-result_share_a" href="/" target="_blank">
+        <span class="message" lang="ja">結果を推しMENメーカーで開く</span>
+        <span class="message" lang="en">Open in OSHI-MEN Maker</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+             class="bi bi-box-arrow-up-right">
+          <path fill-rule="evenodd"
+                d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z"/>
+          <path fill-rule="evenodd"
+                d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z"/>
+        </svg>
+      </a></div>
+    </div>
+
+    <div id="setting">
+      <div id="setting_panel">
+        <div class="start_competition_space">
+          <button type=button id="start-competition" class="init-competition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                 class="bi bi-play-fill" viewBox="0 0 16 16">
+              <path
+                d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393z"/>
+            </svg>
+            START
+          </button>
+          <button type=button id="restart-competition" class="init-competition">
+            <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor"
+                 class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+              <path
+                d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+            </svg>
+            RESTART
+          </button>
+          <div id="start-competition_error">
+            <span class="message" lang="ja">練習生を設定してください</span>
+            <span class="message" lang="en">please set trainees</span></div>
+        </div>
+        <div id="setting_condition">
+          <div class="setting_condition-status">
+            <div id="setting_panel-round">
+              <span class="message" lang="ja">推定</span><span class="message" lang="en">estimated</span>:
+              <span class="target-estimated"></span> rounds
+            </div>
+            <div id="setting_condition-share">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                   class="bi bi-share-fill" viewBox="0 0 16 16">
+                <path
+                  d="M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.499 2.499 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5z"/>
+              </svg>
+              <span id="setting_condition-share-url" class="setting_condition-share-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                     class="bi bi-link-45deg" viewBox="0 0 16 16">
+                  <path
+                    d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                  <path
+                    d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                </svg>
+              </span>
+              <a id="setting_condition-share-twitter" class="setting_condition-share-icon"
+                 rel="noopener noreferrer"
+                 href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fproduce101japan2.github.io%2Fsort.html&hashtags=推しMENチェッカー,PRODUCE101JAPAN2"
+                 target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor"
+                     class="bi bi-twitter" viewBox="0 0 16 16">
+                  <path
+                    d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                </svg>
+              </a>
+              <a id="setting_condition-share-line" class="setting_condition-share-icon"
+                 href="https://social-plugins.line.me/lineit/share?url=https%3A%2F%2Fproduce101japan2.github.io%2Fsort.html"
+                 rel="noopener noreferrer" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 300 300">
+                  <g>
+                    <path class="line-fill-1"
+                          d="M245.741,0L54.679,0C24.677-0.042,0.043,24.249,0,54.257v191.057 c-0.042,30.01,24.255,54.645,54.258,54.686H245.32c30.01,0.042,54.637-24.249,54.68-54.265l-0.001-191.06 C300.041,24.671,275.749,0.041,245.741,0z"/>
+                    <path class="line-fill-2"
+                          d="M259.877,136.778c0-48.99-49.115-88.846-109.482-88.846 c-60.365,0-109.482,39.856-109.482,88.846c0,43.917,38.949,80.702,91.563,87.659c3.563,0.769,8.416,2.354,9.644,5.4 c1.104,2.766,0.724,7.1,0.354,9.896c0,0-1.279,7.727-1.562,9.375c-0.476,2.767-2.201,10.823,9.483,5.901 c11.686-4.922,63.047-37.127,86.016-63.568h-0.005C252.273,174.045,259.877,156.385,259.877,136.778z M107.537,165.925H85.785 c-3.164,0-5.74-2.575-5.74-5.744v-43.505c0-3.166,2.576-5.741,5.74-5.741c3.166,0,5.739,2.576,5.739,5.741v37.764h16.013 c3.169,0,5.741,2.576,5.741,5.742C113.277,163.35,110.706,165.925,107.537,165.925z M130.037,160.182 c0,3.168-2.575,5.744-5.737,5.744c-3.164,0-5.739-2.575-5.739-5.744v-43.505c0-3.166,2.575-5.741,5.739-5.741 c3.162,0,5.737,2.576,5.737,5.741V160.182z M182.402,160.182c0,2.479-1.573,4.667-3.924,5.446 c-0.591,0.198-1.207,0.298-1.824,0.298c-1.791,0-3.505-0.858-4.587-2.298l-22.293-30.359v26.914 c0,3.168-2.573,5.744-5.741,5.744c-3.166,0-5.742-2.575-5.742-5.744v-43.505c0-2.474,1.579-4.662,3.924-5.445 c0.591-0.199,1.206-0.296,1.823-0.296c1.791,0,3.509,0.856,4.584,2.295l22.3,30.362v-26.917c0-3.166,2.578-5.741,5.74-5.741 c3.167,0,5.739,2.576,5.739,5.741V160.182z M217.602,132.688c3.169,0,5.742,2.576,5.742,5.743c0,3.163-2.573,5.739-5.742,5.739 h-16.008v10.27h16.008c3.164,0,5.742,2.576,5.742,5.742c0,3.168-2.578,5.744-5.742,5.744h-21.754c-3.16,0-5.74-2.575-5.74-5.744 v-21.738c0-0.007,0-0.007,0-0.013v-21.755c0-3.166,2.575-5.741,5.74-5.741h21.754c3.169,0,5.742,2.576,5.742,5.741 c0,3.166-2.573,5.741-5.742,5.741h-16.008v10.271H217.602z"/>
+                  </g>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <hr/>
+          <div id="setting_condition-target">
+            <span class="message" lang="ja">目標: 自分のトップ</span>
+            <span class="message" lang="en">Target: Create my own TOP </span>
+            <select id="rank-target">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11" selected>11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21">21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+              <option value="32">32</option>
+              <option value="33">33</option>
+              <option value="34">34</option>
+              <option value="35">35</option>
+              <option value="36">36</option>
+              <option value="37">37</option>
+              <option value="38">38</option>
+              <option value="39">39</option>
+              <option value="40">40</option>
+              <option value="41">41</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+              <option value="45">45</option>
+              <option value="46">46</option>
+              <option value="47">47</option>
+              <option value="48">48</option>
+              <option value="49">49</option>
+              <option value="50">50</option>
+              <option value="51">51</option>
+              <option value="52">52</option>
+              <option value="53">53</option>
+              <option value="54">54</option>
+              <option value="55">55</option>
+              <option value="56">56</option>
+              <option value="57">57</option>
+              <option value="58">58</option>
+              <option value="59">59</option>
+              <option value="60">60</option>
+            </select>
+            <span class="message" lang="ja">位を決める</span><span class="message" lang="en"> ranking</span>
+          </div>
+          <div id="setting_condition-pool">
+            <span class="message" lang="ja">練習生: </span>
+            <span class="message" lang="en">Trainees: Ranked in the TOP </span>
+            <select id="rank-pool">
+              <option value="custom">CUSTOM</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+              <option value="12">12</option>
+              <option value="13">13</option>
+              <option value="14">14</option>
+              <option value="15">15</option>
+              <option value="16">16</option>
+              <option value="17">17</option>
+              <option value="18">18</option>
+              <option value="19">19</option>
+              <option value="20">20</option>
+              <option value="21" selected>21</option>
+              <option value="22">22</option>
+              <option value="23">23</option>
+              <option value="24">24</option>
+              <option value="25">25</option>
+              <option value="26">26</option>
+              <option value="27">27</option>
+              <option value="28">28</option>
+              <option value="29">29</option>
+              <option value="30">30</option>
+              <option value="31">31</option>
+              <option value="32">32</option>
+              <option value="33">33</option>
+              <option value="34">34</option>
+              <option value="35">35</option>
+              <option value="36">36</option>
+              <option value="37">37</option>
+              <option value="38">38</option>
+              <option value="39">39</option>
+              <option value="40">40</option>
+              <option value="41">41</option>
+              <option value="42">42</option>
+              <option value="43">43</option>
+              <option value="44">44</option>
+              <option value="45">45</option>
+              <option value="46">46</option>
+              <option value="47">47</option>
+              <option value="48">48</option>
+              <option value="49">49</option>
+              <option value="50">50</option>
+              <option value="51">51</option>
+              <option value="52">52</option>
+              <option value="53">53</option>
+              <option value="54">54</option>
+              <option value="55">55</option>
+              <option value="56">56</option>
+              <option value="57">57</option>
+              <option value="58">58</option>
+              <option value="59">59</option>
+              <option value="60">60</option>
+              <option value="61">61</option>
+              <option value="62">62</option>
+              <option value="63">63</option>
+              <option value="64">64</option>
+              <option value="65">65</option>
+              <option value="66">66</option>
+              <option value="67">67</option>
+              <option value="68">68</option>
+              <option value="69">69</option>
+              <option value="70">70</option>
+              <option value="71">71</option>
+              <option value="72">72</option>
+              <option value="73">73</option>
+              <option value="74">74</option>
+              <option value="75">75</option>
+              <option value="76">76</option>
+              <option value="77">77</option>
+              <option value="78">78</option>
+              <option value="79">79</option>
+              <option value="80">80</option>
+              <option value="81">81</option>
+              <option value="82">82</option>
+              <option value="83">83</option>
+              <option value="84">84</option>
+              <option value="85">85</option>
+              <option value="86">86</option>
+              <option value="87">87</option>
+              <option value="88">88</option>
+              <option value="89">89</option>
+              <option value="90">90</option>
+              <option value="91">91</option>
+              <option value="92">92</option>
+              <option value="93">93</option>
+              <option value="94">94</option>
+              <option value="95">95</option>
+              <option value="96">96</option>
+              <option value="97">97</option>
+              <option value="98">98</option>
+              <option value="99">99</option>
+              <option value="100">100</option>
+            </select>
+            <span class="message" lang="ja">位以内</span>
+            <div id="setting_condition-pool-preview"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>switch to <a href="?lang=en">English</a> | <a href="?lang=ja">日本語</a></p>
+    <p><a href="/">推しMENメーカー</a> | <a href="/list.html">推しMENリスト</a></p>
+    <hr/>
+    <p><a href="https://produce48.github.io/">produce48</a> | <a
+      href="https://producex101.github.io/producex101/">producex101</a> | <a
+      href="https://produce101japan.github.io/">produce101japan</a>
+    </p>
+    <p>
+      <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button"
+         data-url="https://produce101japan2.github.io/sort.html" data-hashtags="推しMENチェッカー,PRODUCE101JAPAN2"
+         data-show-count="false">Tweet</a>
+    </p>
+  </footer>
+</div>
+<!-- Load in script files -->
+<script src="scripts/csv.js"></script>
+<script src="scripts/estimate/estimate.js?202106040708"></script>
+<script src="scripts/sort.js?202106040708"></script>
+<script src="https://www.line-website.com/social-plugins/js/thirdparty/loader.min.js" async="async"
+        defer="defer"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+</body>
+</html>
