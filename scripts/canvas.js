@@ -2,9 +2,9 @@ const MEMBER_FILE = {
   default: "trainee_info.ko.csv",
   ja : "trainee_info.ja.csv"
 }
-const FILE_VERSION = "202212292332";
+const FILE_VERSION = "202212300017";
 const CURRENT_BORDER = 97;
-const CURRENT_RANK_COLUMN = 100;
+const CURRENT_RANK_COLUMN = 0;
 const CANVAS_SCALE = 2;
 const ICON_WIDTH = 65;
 const ICON_PREFIX = "assets/trainees/";
@@ -17,7 +17,9 @@ const ICON_LINE_COLOR = {
      c: "#f6d12f",
      d: "#42b96d",
      f: "#a6a6a4",
-     n: "#707070"
+     n: "#707070",
+     KOR: "#53a4fa",
+     GLO: "#d74194"
 }
 const ICON_RANK_FONT_SIZE = 10;
 const ICON_RANK_FONT_COLOR = "#fff";
@@ -68,7 +70,7 @@ function convertCSVArrayToTraineeData(csvArrays) {
     trainee.grade = "n";
     trainee.birth = traineeArray[3];
     trainee.height = traineeArray[4];
-    trainee.group = traineeArray[6];
+    trainee.group = traineeArray[5];
     trainee.company = traineeArray[6];
     trainee.birthplace = traineeArray[7] || "";
     trainee.hobby = traineeArray[8];
@@ -125,7 +127,7 @@ function putTraineeCell(ctx, width, height, row_icons_size, i, j, trainee, rank)
   const pCenterY = i * (ICON_WIDTH + PYRAMID_PADDING_Y) + ICON_WIDTH / 2+ HEADER_MARGIN;
   const pLeftX = (width - ICON_WIDTH  * (row_icons_size) - PYRAMID_PADDING_X * (row_icons_size - 1)) / 2 + ICON_WIDTH * j + PYRAMID_PADDING_X * j;
   const pLeftY = i * (ICON_WIDTH + PYRAMID_PADDING_Y)+ HEADER_MARGIN;
-  const borderColor = trainee != null ? (showEliminated && trainee.eliminated) ? ICON_LINE_COLOR["n"] : ICON_LINE_COLOR[trainee.grade]
+  const borderColor = trainee != null ? (showEliminated && trainee.eliminated) ? ICON_LINE_COLOR["n"] : ICON_LINE_COLOR[trainee.group]
                                        : ICON_DEFAULT_LINE_COLOR;
 
   // reset name
@@ -165,7 +167,7 @@ function putTraineeCell(ctx, width, height, row_icons_size, i, j, trainee, rank)
       ctx.beginPath();
       ctx.arc(pCenterX, pCenterY, ICON_WIDTH / 2 - ICON_BORDER /2, 0, Math.PI*2);
       ctx.closePath();
-      ctx.strokeStyle = (showEliminated && trainee.eliminated) ? ICON_LINE_COLOR["n"] : ICON_LINE_COLOR[trainee.grade];
+      ctx.strokeStyle = (showEliminated && trainee.eliminated) ? ICON_LINE_COLOR["n"] : ICON_LINE_COLOR[trainee.group];
       ctx.lineWidth = ICON_BORDER;
       ctx.stroke();
     }

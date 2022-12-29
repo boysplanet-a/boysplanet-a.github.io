@@ -23,6 +23,8 @@
   --f-rank: #a6a6a4;
   --x-rank: #000000;
   --no-rank: #707070;
+  --kor-rank: #53a4fa;
+  --glo-rank: #d74194;
 
   /* font */
   --font-family: 'Noto Sans JP', 'Open Sans', sans-serif;
@@ -211,6 +213,12 @@ p {
 }
 .no-rank-border {
   border: none;
+}
+.KOR-rank-border {
+  border: 2px solid var(--kor-rank);
+}
+.GLO-rank-border {
+  border: 2px solid var(--glo-rank);
 }
 .eliminated .trainee_picker__container__entry-icon-border {
   border: 2px solid var(--no-rank);
