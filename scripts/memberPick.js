@@ -2,7 +2,7 @@ let showEliminated = true;
 let showTop11 = false;
 let sortOrder;
 
-const URL_PREFIX = "https://produce101japan2.github.io/?r=";
+const URL_PREFIX = "https://boysplanet-a.github.io/?r=";
 const CHECKED_CLASS = "trainee_picker__container__entry-check";
 const CHECKED_IMAGE = `<img class="${CHECKED_CLASS}" src="assets/check.png"/>`;
 const C_COOKIE_NAME = 'c';
@@ -109,7 +109,7 @@ function includesIgnCase(mainString, subString) {
 function changeUrlBox(code){
   document.getElementById("ranking__pyramid-tools-text").value = URL_PREFIX + code;
   document.getElementById("ranking__pyramid-tools-twitter").href =
-      "https://twitter.com/intent/tweet?text=" + URL_PREFIX + code + "&hashtags=推しMENメーカー,PRODUCE101JAPAN2"
+      "https://twitter.com/intent/tweet?text=" + URL_PREFIX + code + "&hashtags=BoysPlanetRanker,boysplanet"
 }
 
 function getPickFromCookie() {

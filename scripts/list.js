@@ -119,7 +119,7 @@ function renderListEntry(trainee) {
   return rankingEntry;
 }
 
-const currentURL = "https://produce101japan2.github.io/list.html";
+const currentURL = "https://boysplanet-a.github.io/list.html";
 const paramGroupNum = 15;
 const paramGroupDigits = 6;
 // Serializes the ranking into a string and appends that to the current URL

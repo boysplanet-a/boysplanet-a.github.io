@@ -1,4 +1,4 @@
-https://produce101japan2.github.io
+https://boysplanet-a.github.io
 
 #### csv info
 

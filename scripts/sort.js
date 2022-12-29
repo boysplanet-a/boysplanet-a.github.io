@@ -8,7 +8,7 @@ const PARAM_POOL = "p";
 const PARAM_TARGET_RANK = "t";
 const PARAM_CUSTOM_POOL = "c";
 const PARAM_NOT_CUSTOM_POOL = "n";
-const URL = "https://produce101japan2.github.io/sort.html";
+const URL = "https://boysplanet-a.github.io/sort.html";
 const URL_PREFIX = `${URL}?r=`;
 const MAX_TRAINEE = 101;
 const RETIRED_TRAINEE = "91";
@@ -228,7 +228,7 @@ function renderResult(finalRanking) {
   document.getElementById("target-boards-result_share-twitter_a")
       .setAttribute("href",
                     `https://twitter.com/intent/tweet?url=${encodeURI(
-                        shareUrl)}&hashtags=推しMENチェッカー,PRODUCE101JAPAN2`);
+                        shareUrl)}&hashtags=BoysPlanetChecker,boysplanet`);
 
   document.getElementById("controller").className = "selected";
 }
@@ -314,7 +314,7 @@ function updateShareAttendees() {
   document.getElementById("setting_condition-share-twitter")
       .setAttribute("href",
                     `https://twitter.com/intent/tweet?text=${message}`
-                    + `&url=${encodeURIComponent(shareUrl)}&hashtags=推しMENチェッカー,PRODUCE101JAPAN2`);
+                    + `&url=${encodeURIComponent(shareUrl)}&hashtags=BoysPlanetChecker,boysplanet`);
 
   document.getElementById("setting_condition-share-line")
       .setAttribute("href",
