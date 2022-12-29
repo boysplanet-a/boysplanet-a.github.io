@@ -395,7 +395,7 @@ initRanking();
 
 const file = MEMBER_FILE[lang] || MEMBER_FILE["default"]
 
-readFromCSV(file,
+readFromCSV(file + "?" + FILE_VERSION,
             (t) => {
               trainees = t;
               createCanvas(picks);

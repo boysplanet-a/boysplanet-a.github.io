@@ -1,4 +1,11 @@
-const MEMBER_FILE = "trainee_info.csv?202212300047";
+const MEMBER_FILE = {
+  default: "trainee_info.ko.csv",
+  ja : "trainee_info.ja.csv",
+  en : "trainee_info.en.csv",
+  "zh-CN": "trainee_info.zh-CN.csv",
+  "zh-TW": "trainee_info.zh-TW.csv"
+}
+const FILE_VERSION = "202212300047";
 const CURRENT_BORDER = 21;
 const CURRENT_RANK_COLUMN = 16;
 //for maker
@@ -15,8 +22,17 @@ const RETIRED_TRAINEE = "91";
 
 const CUSTOM_POOL_VALUE = "custom";
 
+const MESSAGES = {
+  "letsCheckTrainees":{
+    "ko": "Let's check trainees!",
+    "en": "Let's check trainees!",
+    "ja": "練習生をチェック！",
+    "zh-CN": "Let's check trainees!",
+    "zh-TW": "Let's check trainees!"
+  }
+}
+
 let targetTop;
-let isJapanese = false;
 let trainees;
 let allTrainees;
 let attendees;
@@ -52,23 +68,21 @@ function convertCSVArrayToTraineeData(csvArrays) {
   const trainees = {};
   csvArrays.forEach(traineeArray => {
     const trainee = {};
-    trainee.id = parseInt(traineeArray[0].split('_')[0]) - 1;
-    trainee.image = traineeArray[0] + ".jpg";
-    trainee.image_large = traineeArray[0] + ".jpg";
-    trainee.name = isJapanese ? traineeArray[1] : traineeArray[2];
-    trainee.name_sub = isJapanese ? traineeArray[2] : traineeArray[1];
+    trainee.id = parseInt(traineeArray[0]) - 1;
+    trainee.image = traineeArray[0] + ".png";
+    trainee.name = traineeArray[1];
+    trainee.name_sub = traineeArray[2];
     trainee.rank = traineeArray[CURRENT_RANK_COLUMN] || 1;
     trainee.eliminated = trainee.rank > CURRENT_BORDER; // t if eliminated
-    trainee.grade = traineeArray[10];
+    trainee.grade = "n";
     trainee.birth = traineeArray[3];
-    trainee.blood = traineeArray[4];
-    trainee.height = traineeArray[5];
-    trainee.weight = traineeArray[6];
-    trainee.birthplace = traineeArray[7];
+    trainee.height = traineeArray[4];
+    trainee.group = traineeArray[5];
+    trainee.company = traineeArray[6];
+    trainee.birthplace = traineeArray[7] || "";
     trainee.hobby = traineeArray[8];
     trainee.skills = traineeArray[9];
-    trainee.compare = 0;
-    trainee.score = 0;
+    trainee.comment = traineeArray[10];
     trainees[trainee.id] = trainee;
   });
   return trainees;
@@ -142,24 +156,6 @@ function startCompetition(top) {
   attendees = shuffle(attendeesPreview.slice(0, attendeesPreview.length));
   history = [];
   targetTop = top;
-}
-
-function setLang() {
-  const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get("lang")) {
-    isJapanese = urlParams.get("lang") === "ja"
-  } else {
-    isJapanese =
-        (window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage).substr(
-            0, 2) === "ja";
-  }
-
-  if (isJapanese) {
-    document.documentElement.lang = "ja";
-    document.getElementById("multi-lang").className = "lang-ja";
-  } else {
-    document.getElementById("multi-lang").className = "lang-en";
-  }
 }
 
 function renderMatch(id, me, other) {
@@ -295,7 +291,7 @@ function updateShareAttendees() {
     param = PARAM_CUSTOM_POOL;
   }
   const shareUrl = `${URL}?${param}=${code}&${PARAM_TARGET_RANK}=${targetTopValue}`;
-  const message = isJapanese ? "練習生をチェック！" : "Let's check trainees!";
+  const message = MESSAGES["letsCheckTrainees"][lang]
   console.log(shareUrl);
 
   document.getElementById("setting_condition-share-url").onclick = "";
@@ -445,10 +441,32 @@ function readFromParam() {
 
 }
 
-setLang();
+function getSetLang() {
+  let lang = getLangSetting()
+  document.documentElement.lang = lang;
+  return lang;
+}
+
+function getLangSetting() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let langParamFull = (urlParams.get("lang") || window.navigator.userLanguage || window.navigator.language
+                       || window.navigator.browserLanguage)
+  let langParam = langParamFull.substring(0, 2)
+  if (langParam === "ja" || langParam === "ko" ) {
+    return langParam
+  } else if(langParam === "zh" && (langParamFull === "zh-TW" || langParamFull === "zh-CN")) {
+    return langParamFull
+  }else {
+    return "en"
+  }
+}
+
+const lang = getSetLang();
+
+const file = MEMBER_FILE[lang] || MEMBER_FILE["default"]
 
 readFromCSV(
-    MEMBER_FILE,
+    file + "?" + FILE_VERSION,
     (t) => {
       trainees = t;
       allTrainees = Object.keys(trainees).filter(e => RETIRED_TRAINEE !== e).map(e => Number(e));
