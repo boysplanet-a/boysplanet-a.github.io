@@ -65,7 +65,7 @@ function convertCSVArrayToTraineeData(csvArrays) {
     trainee.name_sub = traineeArray[2];
     trainee.rank = traineeArray[CURRENT_RANK_COLUMN] || 1;
     trainee.eliminated = trainee.rank > CURRENT_BORDER; // t if eliminated
-    trainee.grade = traineeArray[10];
+    trainee.grade = "n";
     trainee.birth = traineeArray[3];
     trainee.blood = traineeArray[4];
     trainee.height = traineeArray[5];
