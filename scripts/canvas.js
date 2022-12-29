@@ -1,8 +1,11 @@
 const MEMBER_FILE = {
   default: "trainee_info.ko.csv",
-  ja : "trainee_info.ja.csv"
+  ja : "trainee_info.ja.csv",
+  en : "trainee_info.en.csv",
+  "zh-CN": "trainee_info.zh-CN.csv",
+  "zh-TW": "trainee_info.zh-TW.csv"
 }
-const FILE_VERSION = "202212300017";
+const FILE_VERSION = "202212300047";
 const CURRENT_BORDER = 97;
 const CURRENT_RANK_COLUMN = 0;
 const CANVAS_SCALE = 2;
@@ -354,19 +357,23 @@ function onMouseDown(e){
 }
 
 function getSetLang() {
-  let urlParams = new URLSearchParams(window.location.search);
-  let lang = "en";
-  if (urlParams.get("lang")) {
-    if (urlParams.get("lang") === "ja") {
-      lang = "ja";
-    }
-  } else if ((window.navigator.userLanguage || window.navigator.language ||
-              window.navigator.browserLanguage).substr(0, 2) === "ja") {
-    lang = "ja";
-  }
-
+  let lang = getLangSetting()
   document.documentElement.lang = lang;
   return lang;
+}
+
+function getLangSetting() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let langParamFull = (urlParams.get("lang") || window.navigator.userLanguage || window.navigator.language
+                       || window.navigator.browserLanguage)
+  let langParam = langParamFull.substring(0, 2)
+  if (langParam === "ja" || langParam === "ko" ) {
+    return langParam
+  } else if(langParam === "zh" && (langParamFull === "zh-TW" || langParamFull === "zh-CN")) {
+    return langParamFull
+  }else {
+    return "en"
+  }
 }
 
 function initRanking(){
