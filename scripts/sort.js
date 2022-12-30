@@ -69,7 +69,7 @@ function convertCSVArrayToTraineeData(csvArrays) {
   csvArrays.forEach(traineeArray => {
     const trainee = {};
     trainee.id = parseInt(traineeArray[0]);
-    trainee.image = traineeArray[0] + ".png";
+    trainee.image = "trainees_s/" + traineeArray[0] + ".png";
     trainee.image_large = "trainees/"+ traineeArray[0] + ".png";
     trainee.name = traineeArray[1];
     trainee.name_sub = traineeArray[2];
@@ -208,7 +208,7 @@ function renderResult(finalRanking) {
         `<div class="ranking__trainee">`
         + `<div class="ranking__image">`
         + `<div class="ranking__image-border ${trainee.group}-rank-border"></div> `
-        + `<img src="assets/trainees/${trainee.image}" alt="${trainee.name}"/>`
+        + `<img src="assets/${trainee.image}" alt="${trainee.name}"/>`
         + `<div class="ranking__rank">${i + 1}</div>`
         + `</div>`
         + `<div class="ranking__info">`
@@ -247,7 +247,7 @@ function renderAttendeesPreview() {
         `<div class="attendee-preview-trainee ${isAttendee}" id="attendee-preview-trainee-${id}" data-trainee="${id}">`
         + `<div class="attendee-preview-image">`
         + `<div class="attendee-preview-image-border ${trainee.group}-rank-border"></div> `
-        + `<img src="assets/trainees/${trainee.image}" alt="${trainee.name}"/>`
+        + `<img src="assets/${trainee.image}" alt="${trainee.name}"/>`
         + `</div>`
         + `</div>`
     );
