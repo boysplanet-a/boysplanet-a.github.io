@@ -76,7 +76,8 @@ function getTableEntryHTML(trainee, selected) {
         <span class="name sub">${trainee.company}</span>
       </div>
       <div class="info">
-        <span class="name sub">${trainee.birth} ${trainee.birthplace} ${trainee.height}cm</span>
+        <span class="name sub">${trainee.birth} ${trainee.birthplace} ${trainee.height}cm <a class="profile_link" href="${`https://service.mnet.world/boysplanet/en/artist/${trainee.rank}`}" onclick="event.stopPropagation();">Profile   <i class="fa-solid fa-up-right-from-square"></i>
+</a> </span>
       </div>
     </div>
   </div>`;
