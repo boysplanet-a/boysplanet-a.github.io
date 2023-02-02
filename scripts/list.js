@@ -1,8 +1,16 @@
 const L_COOKIE_NAME = 'list';
 const L_COOKIE_EXPIRES_SECOND = 3600 * 24 * 90; // 3month
-const CURRENT_RANK_COLUMN = 99;
-const CURRENT_BORDER = 99;
-const CVS_FILE = "./trainee_info.ja.csv?202302022232";
+const CURRENT_RANK_COLUMN = 0;
+const CURRENT_BORDER = 97;
+const MEMBER_FILE = {
+  default: "trainee_info.ko.csv",
+  ja : "trainee_info.ja.csv",
+  en : "trainee_info.en.csv",
+  "zh-CN": "trainee_info.zh-CN.csv",
+  "zh-TW": "trainee_info.zh-TW.csv"
+}
+const FILE_VERSION = "202302022232";
+const ICON_PREFIX = "assets/trainees_s/";
 
 // Takes in name of csv and populates necessary data in table
 function readFromCSV(path) {
@@ -26,12 +34,21 @@ function convertCSVArrayToTraineeData(csvArrays) {
   trainees = csvArrays.map(function(traineeArray, index) {
     trainee = {};
     trainee.id = index;
-    trainee.image = traineeArray[0] + ".jpg";
-    trainee.name_romanized = traineeArray[2];
-    trainee.name_japanese = traineeArray[1];
+    trainee.image = traineeArray[0] + ".png";
+    trainee.name = traineeArray[1];
+    trainee.name_sub = traineeArray[2];
     trainee.rank = traineeArray[CURRENT_RANK_COLUMN] || 1;
     trainee.eliminated = trainee.rank > CURRENT_BORDER; // t if eliminated
-    trainee.grade = "f";
+    trainee.grade = "n";
+    trainee.birth = traineeArray[3];
+    trainee.height = traineeArray[4];
+    trainee.group = traineeArray[5];
+    trainee.company = traineeArray[6];
+    trainee.birthplace = traineeArray[7] || "";
+    trainee.hobby = traineeArray[8];
+    trainee.skills = traineeArray[9];
+    trainee.comment = traineeArray[10];
+    trainees[trainee.id] = trainee;
     return trainee;
   });
   filteredTrainees = trainees;
@@ -108,11 +125,11 @@ function renderListEntry(trainee) {
     <div id="list__entry-view-${trainee.id}" class="no-rank">
       <div class="list__entry-view">
         <div class="list__entry-icon">
-          <img class="list__entry-img" src="assets/trainees/${trainee.image}" />
+          <img class="list__entry-img" src="${ICON_PREFIX}${trainee.image}" />
         </div>
       </div>
       <div class="list__row-text">
-        <div class="name">${isJapanese?trainee.name_japanese:trainee.name_romanized}</div>
+        <div class="name">${trainee.name}</div>
       </div>
     </div>
   </div>`;
@@ -184,19 +201,6 @@ function copyLink() {
   document.execCommand("copy");
 }
 
-function setLang() {
-  var urlParams = new URLSearchParams(window.location.search)
-  if(urlParams.get("lang")){
-    isJapanese = urlParams.get("lang") === "ja"
-  }else{
-    isJapanese = (window.navigator.userLanguage || window.navigator.language || window.navigator.browserLanguage).substr(0,2) === "ja" ;
-  }
-
-  if(isJapanese){
-    document.documentElement.lang = "ja";
-  }
-}
-
 function setDate() {
   var today = new Date();
   var dateString = today.getFullYear()
@@ -205,7 +209,7 @@ function setDate() {
                    + " " + zeroPadding(today.getHours() , 2)
                    + ":" + zeroPadding(today.getMinutes(), 2) ;
 
-  document.getElementById("current_date").innerHTML =  (isJapanese?"":"at ") + dateString + (isJapanese?" 現在":"");
+  document.getElementById("current_date").innerHTML = "at " + dateString;
 }
 
 function zeroPadding(num, length){
@@ -279,14 +283,37 @@ function setPickToCookie(code){
   document.cookie = L_COOKIE_NAME + '=' + code + '; expires=' + d.toGMTString() + ';';
 }
 
+function getSetLang() {
+  let lang = getLangSetting()
+  document.documentElement.lang = lang;
+  return lang;
+}
+
+function getLangSetting() {
+  let urlParams = new URLSearchParams(window.location.search);
+  let langParamFull = (urlParams.get("lang") || window.navigator.userLanguage || window.navigator.language
+                       || window.navigator.browserLanguage)
+  let langParam = langParamFull.substring(0, 2)
+  if (langParam === "ja" || langParam === "ko" ) {
+    return langParam
+  } else if(langParam === "zh" && (langParamFull === "zh-TW" || langParamFull === "zh-CN")) {
+    return langParamFull
+  }else {
+    return "en"
+  }
+}
+
 // holds the list of all trainees
 var trainees = [];
 // holds the list of trainees to be shown on the table
 var filteredTrainees = [];
 // holds true if using japanese
 var isJapanese = false;
-setLang();
-readFromCSV(CVS_FILE);
+
+const lang = getSetLang();
+const file = MEMBER_FILE[lang] || MEMBER_FILE["default"]
+
+readFromCSV(file + "?" + FILE_VERSION);
 //getRanking();
 setDate();
 setGrades();
