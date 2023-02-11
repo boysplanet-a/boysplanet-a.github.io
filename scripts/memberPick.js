@@ -76,7 +76,7 @@ function getTableEntryHTML(trainee, selected) {
         <span class="name sub">${trainee.company}</span>
       </div>
       <div class="info">
-        <span class="name sub">${trainee.birth} ${trainee.birthplace} ${trainee.height}cm <a target="_blank" class="profile_link" href="${`https://service.mnet.world/boysplanet/en/artist/${trainee.rank}`}" onclick="event.stopPropagation();">Profile   <i class="fa-solid fa-up-right-from-square"></i>
+        <span class="name sub">${trainee.birth} ${trainee.birthplace} ${trainee.height}cm <a target="_blank" class="profile_link" href="${`https://service.mnet.world/boysplanet/en/artist/${trainee.id + 1}`}" onclick="event.stopPropagation();">Profile   <i class="fa-solid fa-up-right-from-square"></i>
 </a> </span>
       </div>
     </div>
