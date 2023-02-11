@@ -239,6 +239,17 @@ p {
   font-size: 11px;
 }
 
+.trainee_picker__container__entry .name.sub .profile_link {
+  color: var(--color-gray);
+  font-size: 14;
+}
+
+.trainee_picker__container__entry .name.sub .profile_link:hover {
+  color: var(--name-gray);
+  font-size: 14;
+}
+
+
 .trainee_picker__container__entry .info {
   color: var(--color-gray);
 }
