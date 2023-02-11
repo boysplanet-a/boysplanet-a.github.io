@@ -5,7 +5,7 @@ const MEMBER_FILE = {
   "zh-CN": "trainee_info.zh-CN.csv",
   "zh-TW": "trainee_info.zh-TW.csv"
 }
-const FILE_VERSION = "202202022304";
+const FILE_VERSION = "202202111559";
 const CURRENT_BORDER = 97;
 const CURRENT_RANK_COLUMN = 0;
 const CANVAS_SCALE = 2;
