@@ -62,7 +62,7 @@ function getTableEntryHTML(trainee, selected) {
   const tableEntry = `
   <div class="trainee_picker__container__entry ${eliminated}" data-id="${trainee.id}">
     <div class="trainee_picker__container__entry-icon">
-      <img class="trainee_picker__container__entry-img" src="assets/trainees/${trainee.image}" />
+      <img class="trainee_picker__container__entry-img" src="assets/trainees_s/${trainee.image}" />
       <div class="trainee_picker__container__entry-icon-border ${trainee.group}-rank-border"></div>
       ${
         selected ? CHECKED_IMAGE: ""
