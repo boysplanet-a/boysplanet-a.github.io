@@ -6,10 +6,10 @@ const MEMBER_FILE = {
   "zh-TW": "trainee_info.zh-TW.csv"
 }
 const FILE_VERSION = "202202111559";
-const CURRENT_BORDER = 95;
-const CURRENT_RANK_COLUMN = 11;
+const CURRENT_BORDER = 52;
+const CURRENT_RANK_COLUMN = 12;
 //for maker
-const PYRAMID_MAX = 11; // sum of PYRAMID_ROWS
+const PYRAMID_MAX = 9; // sum of PYRAMID_ROWS
 const PARAM_RESULT = "r";
 const PARAM_POOL = "p";
 const PARAM_TARGET_RANK = "t";

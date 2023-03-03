@@ -1,7 +1,7 @@
 const L_COOKIE_NAME = 'list';
 const L_COOKIE_EXPIRES_SECOND = 3600 * 24 * 90; // 3month
-const CURRENT_RANK_COLUMN = 0;
-const CURRENT_BORDER = 97;
+const CURRENT_RANK_COLUMN = 12;
+const CURRENT_BORDER = 52;
 const MEMBER_FILE = {
   default: "trainee_info.ko.csv",
   ja : "trainee_info.ja.csv",

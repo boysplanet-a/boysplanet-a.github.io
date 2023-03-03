@@ -1,4 +1,4 @@
-let showEliminated = false;
+let showEliminated = true;
 let showTop11 = false;
 let sortOrder;
 
